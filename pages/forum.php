@@ -49,7 +49,13 @@
 
         const handleSubmit = e => {
             e.preventDefault()
-            fetch('../actions/submitNewPost.php')
+            let formData = new FormData()
+            formData.append('title', titleInput.value)
+            formData.append('body', bodyInput.value)
+            fetch('../actions/submitNewPost.php', {
+                method: 'POST',
+                body: formData
+            })
             .then(response => {
                 if (response.code === 200) {
                     console.log(`we did it!`)

@@ -1,5 +1,8 @@
 <?php
     $time = strval(time());
     mkdir('../messages/' . $time);
-    file_put_contents("../messages/" . $time . "/originalPost.txt", "Hello world!");
+    $title = $_POST['title'];
+    $body = $_POST['body'];
+    file_put_contents("../messages/" . $time . "/originalPost.json", 
+    "{\n\t\"title\": \"" . $title . "\", \n\t\"body\": \"" . $body . "\" \n}");
 ?>
