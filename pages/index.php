@@ -10,7 +10,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,
                     initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="../styles.css" />
         <script type="text/javascript">
         let currentPage = 1
         window.onload = _ => {
@@ -49,13 +49,13 @@
                 <a id="tab_3">Forum</a>
             </nav> <!-- end navbar -->
             <section id="page_1">
-                <h1>Page 1</h1>
+                <?php include 'home.php'?>
             </section> <!-- end page 1 -->
             <section id="page_2">
-                <h1>Page 2</h1>
+                <?php include 'about.php'?>
             </section> <!-- end page 2 -->
             <section id="page_3">
-                <h1>Page 3</h1>
+                <?php include 'forum.php'?>
             </section> <!-- end page 3 -->
         </div> <!-- end pagewrapper div -->
     </body>
