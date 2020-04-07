@@ -40,6 +40,9 @@
         displayPage = id => {
             document.getElementById(`page_${currentPage}`).style.display = "none" // hide current page
             document.getElementById(`tab_${currentPage}`).className = "" // current tab is no longer activeTab
+            document.getElementById("newPostForm").style.display = "none" // hide new post form if open and navigating away
+            document.getElementById("forumBody").style.display = "block" // show forum body if navigating away so it reappears
+                                                                         //    on next visit
             currentPage = id.split("_")[1]
             document.getElementById(`page_${currentPage}`).style.display = "block" // show selected page
             document.getElementById(`tab_${currentPage}`).className = "activeTab"  // selected tab is now activeTab
