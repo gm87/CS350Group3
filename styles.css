@@ -59,3 +59,51 @@ nav a:hover {
 .newArticleBtn .plusIcon {
     margin-left: 8px;
 }
+
+.newPostLabel {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 8px;
+    font-size: large;
+}
+
+.cancelBtn {
+    width: 100%;
+    background-color: #cc0000;
+    font-size: large;
+    padding: 6px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+#newPostForm #titleInput {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#newPostForm #bodyInput {
+    width: 100%;
+    border-radius: 8px;
+    height: 600px;
+    padding: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+#submitBtn {
+    font-size: large;
+    padding: 6px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background-color: #4BB543;
+    color: white;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+}
+
