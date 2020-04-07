@@ -16,8 +16,8 @@
                 foreach ($articles as $article) {
                     if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
                     $filePath = "../messages/" . $article . "/originalPost.json";
-                    echo "<script>console.log(\"" . file_get_contents($filePath) . "\")</script>";
-                    echo "<div class=\"articleTitle\">" . file_get_contents($filePath) . "</div>";
+                    # echo "<script>console.log(\"" . file_get_contents($filePath) . "\")</script>";
+                    echo "<div class=\"articleTitle\">" . json_decode(file_get_contents($filePath))->title . "</div>";
                 }
             ?>
         </div> <!-- end forumBody div -->
