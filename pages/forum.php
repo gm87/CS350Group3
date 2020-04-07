@@ -8,7 +8,8 @@
     </head>
 
     <body>
-        <div class="pageheader">Forum</div><div class="newArticleBtn">New<span class="plusIcon"><i class="fas fa-plus"></i></span></div>
+        <div class="newArticleBtn">New<span class="plusIcon"><i class="fas fa-plus"></i></span></div>
+        <div class="pageheader">Forum</div>
     </body>
 
     <script type="text/javascript">
