@@ -15,12 +15,10 @@
         let currentPage = 1
         window.onload = _ => {
             const nav = document.getElementsByTagName("nav")[0]
-            const ul = nav.getElementsByTagName("ul")[0]
-            const tabs = ul.getElementsByTagName("li")
+            const tabs = nav.getElementsByTagName("a")
 
             const navitem = tabs[0]
             const ident = navitem.id.split("_")[1]
-            ul.setAttribute("data-current", ident)
             navitem.className = "activeTab"
 
             const pages = document.getElementsByTagName("section")
@@ -46,11 +44,9 @@
     <body>
         <div class="pagewrapper">
             <nav> <!-- navbar -->
-                <ul>
-                    <li id="tab_1">Home</li>
-                    <li id="tab_2">About</li>
-                    <li id="tab_3">Forum</li>
-                </ul>
+                <a id="tab_1">Home</a>
+                <a id="tab_2">About</a>
+                <a id="tab_3">Forum</a>
             </nav> <!-- end navbar -->
             <section id="page_1">
                 <h1>Page 1</h1>
