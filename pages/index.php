@@ -22,21 +22,26 @@
             navitem.className = "activeTab"
 
             const pages = document.getElementsByTagName("section")
-            for (page of pages) {
+            for (page of pages) { // hide all pages
                 page.style.display = "none"
             }
-            for (tab of tabs) {
+            for (tab of tabs) { // set onClick function for all tabs
                 tab.onclick = function() { displayPage(this.id) }
             }
-            document.getElementById(`page_${currentPage}`).style.display = "block"
+            document.getElementById(`page_${currentPage}`).style.display = "block" // display homepage by default
         }
 
+        /* displayPage
+            called when tab is clicked, displays selected page
+            Inputs
+                id - id of tab clicked, id of page to display
+        */
         displayPage = id => {
-            document.getElementById(`page_${currentPage}`).style.display = "none"
-            document.getElementById(`tab_${currentPage}`).className = ""
+            document.getElementById(`page_${currentPage}`).style.display = "none" // hide current page
+            document.getElementById(`tab_${currentPage}`).className = "" // current tab is no longer activeTab
             currentPage = id.split("_")[1]
-            document.getElementById(`page_${currentPage}`).style.display = "block"
-            document.getElementById(`tab_${currentPage}`).className = "activeTab"
+            document.getElementById(`page_${currentPage}`).style.display = "block" // show selected page
+            document.getElementById(`tab_${currentPage}`).className = "activeTab"  // selected tab is now activeTab
         }
         </script>
     </head>
