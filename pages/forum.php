@@ -15,7 +15,7 @@
         </div> <!-- end forumBody div -->
         <div id="newPostForm">
             <div class="pageheader">New Post</div>
-            <form action="submit-new-post.php" method="post" autocomplete="off">
+            <form id="newPostFormElement" method="post" autocomplete="off">
             <div class="newPostLabel">Title</div>
             <input id="titleInput" type="text" name="title" maxlength="64" placeholder="Enter the title..." required />
             <div class="newPostLabel">Body</div>
@@ -31,6 +31,9 @@
         const cancelBtn = document.getElementById("newPostCancelBtn")
         const forumBody = document.getElementById("forumBody")
         const newPostForm = document.getElementById("newPostForm")
+        const newPostFormElement = document.getElementById("newPostFormElement")
+        const titleInput = document.getElementById("titleInput")
+        const bodyInput = document.getElementById("bodyInput")
         
         newPostForm.style.display = "none"
 
@@ -43,15 +46,25 @@
             newPostForm.style.display = "none"
             forumBody.style.display = "block"
         }
+
+        const handleSubmit = e => {
+            e.preventDefault()
+            fetch('../actions/submitNewPost.php')
+            .then(response => {
+                if (response.code === 200) {
+                    console.log(`we did it!`)
+                } else {
+                    console.log(`response: ${response} ${JSON.stringify(response)}`)
+                    console.log(`something went wrong! code: ${response.code}`)
+                }
+            })
+            console.log(`title: ${titleInput.value}`)
+            console.log(`body: ${bodyInput.value}`)
+        }
         
         newArticleBtn.onclick = clickedNewBtn
         cancelBtn.onclick = clickedCancelPost
-
-        <?php
-            # useful later - create a directory with current unix timestamp
-            # $time = strval(time());
-            # mkdir('../messages/' . $time)
-        ?>
+        newPostFormElement.addEventListener('submit', handleSubmit)
     </script>
 
 </html>
