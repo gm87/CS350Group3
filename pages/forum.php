@@ -11,7 +11,15 @@
         <div id="forumBody">
             <div class="newArticleBtn">New<span class="plusIcon"><i class="fas fa-plus"></i></span></div>
             <div class="pageheader">Forum</div>
-
+            <?php
+                $articles = scandir('../messages', 1);
+                foreach ($articles as $article) {
+                    if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
+                    $filePath = "../messages/" . $article . "/originalPost.json";
+                    echo "<script>console.log(\"" . file_get_contents($filePath) . "\")</script>";
+                    echo "<div class=\"articleTitle\">" . file_get_contents($filePath) . "</div>";
+                }
+            ?>
         </div> <!-- end forumBody div -->
         <div id="newPostForm">
             <div class="pageheader">New Post</div>
