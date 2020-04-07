@@ -21,7 +21,7 @@
             const navitem = tabs[0]
             const ident = navitem.id.split("_")[1]
             ul.setAttribute("data-current", ident)
-            navitem.setAttribute("style", "background-color: red; color: white;")
+            navitem.className = "activeTab"
 
             const pages = document.getElementsByTagName("section")
             for (page of pages) {
@@ -35,8 +35,10 @@
 
         displayPage = id => {
             document.getElementById(`page_${currentPage}`).style.display = "none"
+            document.getElementById(`tab_${currentPage}`).className = ""
             currentPage = id.split("_")[1]
             document.getElementById(`page_${currentPage}`).style.display = "block"
+            document.getElementById(`tab_${currentPage}`).className = "activeTab"
         }
         </script>
     </head>
@@ -45,7 +47,7 @@
         <div class="pagewrapper">
             <nav> <!-- navbar -->
                 <ul>
-                    <li id="tab_1" >Home</li>
+                    <li id="tab_1">Home</li>
                     <li id="tab_2">About</li>
                     <li id="tab_3">Forum</li>
                 </ul>
