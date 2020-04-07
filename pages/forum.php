@@ -8,7 +8,17 @@
     </head>
 
     <body>
-    <h1>Forum</h1>
+        <div class="pageheader">Forum</div><div class="newArticleBtn">New<span class="plusIcon"><i class="fas fa-plus"></i></span></div>
     </body>
+
+    <script type="text/javascript">
+        const newArticleBtn = document.getElementsByClassName("newArticleBtn")[0]
+        
+        clickedNewBtn = _ => {
+            console.log(`clicked new`)
+        }
+        
+        newArticleBtn.onclick = clickedNewBtn
+    </script>
 
 </html>

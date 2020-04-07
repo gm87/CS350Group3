@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width,
                     initial-scale=1.0">
         <link rel="stylesheet" href="../styles.css" />
+        <script src="https://kit.fontawesome.com/38f1faf54a.js" crossorigin="anonymous"></script>
         <script type="text/javascript">
         let currentPage = 1
         window.onload = _ => {

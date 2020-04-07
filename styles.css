@@ -36,3 +36,24 @@ nav a:hover {
     color: white !important;
     cursor: pointer;
 }
+
+.pageheader {
+    margin-top: 12px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.newArticleBtn {
+    float: right;
+    font-size: large;
+    padding: 6px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background-color: #4BB543;
+    color: white;
+    cursor: pointer;
+}
+
+.newArticleBtn .plusIcon {
+    margin-left: 8px;
+}
