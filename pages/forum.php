@@ -16,7 +16,7 @@
                 foreach ($articles as $article) {
                     if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
                     $filePath = "../messages/" . $article . "/originalPost.json";
-                    # echo "<script>console.log(\"" . file_get_contents($filePath) . "\")</script>";
+                    # echo "<script>console.log(\"called\")</script>";
                     echo "<div class=\"articleTitle\">" . json_decode(file_get_contents($filePath))->title . "</div>";
                 }
             ?>
@@ -64,16 +64,9 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                if (response.code === 200) {
-                    console.log(`we did it!`)
-                } else {
-                    console.log(`response: ${response} ${JSON.stringify(response)}`)
-                    console.log(`something went wrong! code: ${response.code}`)
-                }
+            .then(response => { // do something with response code
+                
             })
-            console.log(`title: ${titleInput.value}`)
-            console.log(`body: ${bodyInput.value}`)
         }
         
         newArticleBtn.onclick = clickedNewBtn
