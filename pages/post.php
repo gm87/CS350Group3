@@ -22,7 +22,7 @@
         echo "<script>console.log(`filePath: " . $filePath . "`)</script>";
         $files = scandir($filePath, 1);
         foreach ($files as $file) {
-            if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
+            if ($file == '.' || $file == '..') continue; // if current or prev directory, skip
             echo "<script>console.log(`file: " . $file . "`)</script>";
         }
     ?>
