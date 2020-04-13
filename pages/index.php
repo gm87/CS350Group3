@@ -13,12 +13,15 @@
         <link rel="stylesheet" href="../styles.css" />
         <script src="https://kit.fontawesome.com/38f1faf54a.js" crossorigin="anonymous"></script>
         <script type="text/javascript">
-        let currentPage = 1
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+        const pageId = urlParams.get('page_id')
+        let currentPage = parseInt(pageId) || 1
         window.onload = _ => {
             const nav = document.getElementsByTagName("nav")[0]
             const tabs = nav.getElementsByTagName("a")
 
-            const navitem = tabs[0]
+            const navitem = tabs[currentPage-1]
             const ident = navitem.id.split("_")[1]
             navitem.className = "activeTab"
 
@@ -29,7 +32,7 @@
             for (tab of tabs) { // set onClick function for all tabs
                 tab.onclick = function() { displayPage(this.id) }
             }
-            document.getElementById(`page_${currentPage}`).style.display = "block" // display homepage by default
+            document.getElementById(`page_${currentPage}`).style.display = "block"
         }
 
         /* displayPage

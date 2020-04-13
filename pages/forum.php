@@ -17,7 +17,7 @@
                     if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
                     $filePath = "../messages/" . $article . "/originalPost.json";
                     # echo "<script>console.log(\"called\")</script>";
-                    echo "<div class=\"articleTitle\">" . json_decode(file_get_contents($filePath))->title . "</div>";
+                    echo "<div class=\"articleTitle\"><a href=\"./post.php?id=" . $article . "\" />" . json_decode(file_get_contents($filePath))->title . "</div>";
                 }
             ?>
         </div> <!-- end forumBody div -->
