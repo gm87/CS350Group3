@@ -14,6 +14,7 @@
             <a href="../pages">Home</a>
             <a href="../pages?page_id=2">About</a>
             <a class="activeTab" href="../pages?page_id=3">Forum</a>
+            <a href="../pages?page_id=5">Sign Out</a>
         </nav> <!-- end navbar -->
         <?php
             $post = htmlspecialchars($_GET["id"]); // use url parameters to get post id
