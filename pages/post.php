@@ -19,7 +19,7 @@
     <?php
         $post = htmlspecialchars($_GET["id"]);
         $filePath = "../messages/" . $post;
-        echo "<script>console.log(`filePath: " . $filePath . "`)</script>";
+        # echo "<script>console.log(`filePath: " . $filePath . "`)</script>";
         $files = scandir($filePath, 1);
         foreach ($files as $file) {
             if ($file == '.' || $file == '..') continue; // if current or prev directory, skip
