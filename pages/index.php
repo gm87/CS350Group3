@@ -16,6 +16,8 @@
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
         const pageId = urlParams.get('page_id')
+        // use url parameters to get current page if navigated from a post
+        //     if null, use homepage
         let currentPage = parseInt(pageId) || 1
         window.onload = _ => {
             const nav = document.getElementsByTagName("nav")[0]
