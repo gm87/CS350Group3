@@ -95,7 +95,7 @@ nav a:hover {
     box-sizing: border-box;
 }
 
-#submitBtn {
+#newPostFormElement #submitBtn {
     font-size: large;
     padding: 6px;
     border: 1px solid lightgray;
@@ -107,3 +107,39 @@ nav a:hover {
     width: 100%;
 }
 
+.postHeader {
+    margin-top: 8px;
+    margin-left: 8px;
+    font-size: xx-large;
+    color: #2565AE;
+}
+
+.postBody {
+    margin-left: 8px;
+}
+
+#newCommentFormElement {
+    margin-top: 24px;
+}
+
+#newCommentFormElement #submitBtn {
+    width: 18%;
+    cursor: pointer;
+    height: 100px;
+    background-color: #4BB543;
+    float: right;
+    margin-right: 8px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    font-size: 24px;
+    color: white;
+}
+
+#commentInput {
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    resize: none;
+    width: 80%;
+    height: 95px;
+    margin-left: 8px;
+}

@@ -15,17 +15,26 @@
             <a href="../pages?page_id=2">About</a>
             <a class="activeTab" href="../pages?page_id=3">Forum</a>
         </nav> <!-- end navbar -->
+        <?php
+            $post = htmlspecialchars($_GET["id"]); // use url parameters to get post id
+            $filePath = "../messages/" . $post;
+            # echo "<script>console.log(`filePath: " . $filePath . "`)</script>";
+            $orignalPost = "../messages/" . $post . "/originalPost.json";
+            echo "<div class=postHeader>" . json_decode(file_get_contents($orignalPost))->title . "</div>";
+            echo "<div class=postBody>" . json_decode(file_get_contents($orignalPost))->body . "</div>";
+            $comments = scandir($filePath, 1);
+            foreach ($comments as $comment) { // read in all files. originalPost.json is original post, rest are comments
+                if ($comment == '.' || $comment == '..' || $comment == 'originalPost.json') continue; // if current or prev directory, skip
+                echo "<script>console.log(`file: " . $comment . "`)</script>";
+            }
+        ?>
+        <div class="commentForm">
+        <form id="newCommentFormElement" method="post" autocomplete="off">
+            <div><textarea id="commentInput" rows="4" cols="50" maxlength="10000" wrap="hard" placeholder="Enter your comment..." required></textarea></div>
+            <input type="submit" id="submitBtn" />
+        </form>
+        </div>
     </div>
-    <?php
-        $post = htmlspecialchars($_GET["id"]); // use url parameters to get post id
-        $filePath = "../messages/" . $post;
-        # echo "<script>console.log(`filePath: " . $filePath . "`)</script>";
-        $files = scandir($filePath, 1);
-        foreach ($files as $file) { // read in all files. originalPost.json is original post, rest are comments
-            if ($file == '.' || $file == '..') continue; // if current or prev directory, skip
-            echo "<script>console.log(`file: " . $file . "`)</script>";
-        }
-    ?>
     </body>
 
 </html>
