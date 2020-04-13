@@ -16,6 +16,8 @@
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
         const pageId = urlParams.get('page_id')
+        const username = window.localStorage.getItem('username')
+        console.log(`username: ${username}`)
         // use url parameters to get current page if navigated from a post
         //     if null, use homepage
         let currentPage = parseInt(pageId) || 1
@@ -33,6 +35,12 @@
             }
             for (tab of tabs) { // set onClick function for all tabs
                 tab.onclick = function() { displayPage(this.id) }
+            }
+            if (!username) {
+                tabs[2].style.display = "none"
+                tabs[4].style.display = "none"
+            } else {
+                tabs[3].style.display = "none"
             }
             document.getElementById(`page_${currentPage}`).style.display = "block"
         }
@@ -61,6 +69,8 @@
                 <a id="tab_1">Home</a>
                 <a id="tab_2">About</a>
                 <a id="tab_3">Forum</a>
+                <a id="tab_4">Log In</a>
+                <a id="tab_5">Sign Out</a>
             </nav> <!-- end navbar -->
             <section id="page_1">
                 <?php include 'home.php'?>
@@ -70,6 +80,12 @@
             </section> <!-- end page 2 -->
             <section id="page_3">
                 <?php include 'forum.php'?>
+            </section> <!-- end page 3 -->
+            <section id="page_4">
+                <?php include 'login.php'?>
+            </section> <!-- end page 3 -->
+            <section id="page_5">
+                <?php include 'signOut.php'?>
             </section> <!-- end page 3 -->
         </div> <!-- end pagewrapper div -->
     </body>
