@@ -15,9 +15,12 @@
         <script type="text/javascript">
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
-        const pageId = urlParams.get('page_id')
+        let pageId = urlParams.get('page_id')
         const username = window.localStorage.getItem('username')
-        console.log(`username: ${username}`)
+        if (username === null && (parseInt(pageId) === 2 || parseInt(pageId) === 5)) {
+            pageId = 1
+            window.history.pushState({}, document.title, "/." + window.location.pathname)
+        }
         // use url parameters to get current page if navigated from a post
         //     if null, use homepage
         let currentPage = parseInt(pageId) || 1
