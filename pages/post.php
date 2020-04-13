@@ -16,6 +16,16 @@
             <a class="activeTab" href="../pages?page_id=3">Forum</a>
         </nav> <!-- end navbar -->
     </div>
+    <?php
+        $post = htmlspecialchars($_GET["id"]);
+        $filePath = "../messages/" . $post;
+        echo "<script>console.log(`filePath: " . $filePath . "`)</script>";
+        $files = scandir($filePath, 1);
+        foreach ($files as $file) {
+            if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
+            echo "<script>console.log(`file: " . $file . "`)</script>";
+        }
+    ?>
     </body>
 
 </html>
