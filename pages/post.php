@@ -37,4 +37,31 @@
     </div>
     </body>
 
+    <script type="text/javascript">
+        window.onload = _ => {
+            const queryString = window.location.search
+            const urlParams = new URLSearchParams(queryString)
+            const postId = urlParams.get('id')
+            const commentInput = document.getElementById("commentInput")
+            const newCommentFormElement = document.getElementById("newCommentFormElement")
+
+            const handleSubmit = e => {
+                e.preventDefault()
+                let formData = new FormData()
+                formData.append('comment', commentInput.value)
+                formData.append('postId', postId)
+                formData.append('author', null)
+                fetch('../actions/submitNewComment.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => { // do something with response
+
+                })
+            }
+
+            newCommentFormElement.addEventListener('submit', handleSubmit)
+        }
+    </script>
+
 </html>
