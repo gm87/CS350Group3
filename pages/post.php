@@ -50,7 +50,7 @@
                 let formData = new FormData()
                 formData.append('comment', commentInput.value)
                 formData.append('postId', postId)
-                formData.append('author', null)
+                formData.append('author', localStorage.getItem('username'))
                 fetch('../actions/submitNewComment.php', {
                     method: 'POST',
                     body: formData
