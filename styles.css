@@ -203,3 +203,12 @@ nav a:hover {
 #signOutBtn:hover {
     background-color: #cc0000ce;
 }
+
+.articleContainer {
+    text-align: center;
+    width: 80%;
+    background-color: #ccc;
+    margin: 8px;
+    padding: 6px;
+    box-sizing: border-box;
+}

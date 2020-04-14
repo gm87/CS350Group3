@@ -17,7 +17,12 @@
                     if ($article == '.' || $article == '..') continue; // if current or prev directory, skip
                     $filePath = "../messages/" . $article . "/originalPost.json";
                     # echo "<script>console.log(\"called\")</script>";
-                    echo "<div class=\"articleTitle\"><a href=\"./post.php?id=" . $article . "\">" . json_decode(file_get_contents($filePath))->title . "</a></div>";
+                    echo "
+                    <div class=\"articleContainer\">
+                    <div class=\"articleTitle\">
+                    <a href=\"./post.php?id=" . $article . "\">" . json_decode(file_get_contents($filePath))->title . "</a>
+                    </div>
+                    </div>";
                 }
             ?>
         </div> <!-- end forumBody div -->
@@ -42,6 +47,7 @@
         const newPostFormElement = document.getElementById("newPostFormElement")
         const titleInput = document.getElementById("titleInput")
         const bodyInput = document.getElementById("bodyInput")
+        const localUsername = localStorage.getItem('username')
         
         newPostForm.style.display = "none"
 
@@ -54,6 +60,9 @@
             newPostForm.style.display = "none"
             forumBody.style.display = "block"
         }
+
+        if (localUsername !== "Author")
+            newArticleBtn.style.display = "none"
 
         const handleSubmit = e => {
             e.preventDefault()
