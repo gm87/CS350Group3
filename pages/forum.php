@@ -11,6 +11,7 @@
         <div id="forumBody">
             <div class="newArticleBtn">New<span class="plusIcon"><i class="fas fa-plus"></i></span></div>
             <div class="pageheader">Forum</div>
+            <div class="forumPageBody">
             <?php
                 $articles = scandir('../messages', 1);
                 foreach ($articles as $article) {
@@ -22,9 +23,11 @@
                     <div class=\"articleTitle\">
                     <a href=\"./post.php?id=" . $article . "\">" . json_decode(file_get_contents($filePath))->title . "</a>
                     </div>
+                    <div class=\"articlePostDate\">" . date("F j, Y", $article) . "</div>
                     </div>";
                 }
             ?>
+            </div>
         </div> <!-- end forumBody div -->
         <div id="newPostForm">
             <div class="pageheader">New Post</div>

@@ -205,10 +205,28 @@ nav a:hover {
 }
 
 .articleContainer {
-    text-align: center;
-    width: 80%;
+    width: 60%;
     background-color: #ccc;
     margin: 8px;
     padding: 6px;
     box-sizing: border-box;
+    line-height: normal;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.articleContainer .articleTitle {
+    float: left;
+}
+
+.articleContainer .articleTitle a {
+    color: black;
+}
+
+.articleContainer .articlePostDate {
+    float: right;
+}
+
+.forumPageBody {
+    text-align: center;
 }
