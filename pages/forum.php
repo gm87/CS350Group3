@@ -11,6 +11,7 @@
         <div id="forumBody">
             <div class="newArticleBtn">New<span class="plusIcon"><i class="fas fa-plus"></i></span></div>
             <div class="pageheader">Forum</div>
+            <br />
             <div class="forumPageBody">
             <?php
                 $articles = scandir('../messages', 1);
