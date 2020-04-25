@@ -77,7 +77,8 @@
                 body: formData
             })
             .then(response => { // do something with response code
-                
+               if(response.status === 200)
+	          window.location.reload()
             })
         }
         
