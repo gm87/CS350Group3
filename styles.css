@@ -230,3 +230,9 @@ nav a:hover {
 .forumPageBody {
     text-align: center;
 }
+
+.commentContainer {
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
