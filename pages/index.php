@@ -25,6 +25,7 @@
         //     if null, use homepage
         let currentPage = parseInt(pageId) || 1
         window.onload = _ => {
+	
             const nav = document.getElementsByTagName("nav")[0]
             const tabs = nav.getElementsByTagName("a")
 
@@ -35,10 +36,18 @@
             const pages = document.getElementsByTagName("section")
             for (page of pages) { // hide all pages
                 page.style.display = "none"
-            }
-            for (tab of tabs) { // set onClick function for all tabs
-                tab.onclick = function() { displayPage(this.id) }
-            }
+        }
+	for (tab of tabs) { // set onClick function for all tabs
+	tab.onclick = function() {
+
+
+	const queryString = window.location.search
+	const urlParams = new URLSearchParams(queryString)
+	urlParams.set('page_id', this.id)
+	let page_id_copy = urlParams.get("page_id")
+	                    console.log("page_id_copy ", page_id_copy, this.id)
+	displayPage(this.id) }
+	            }
             if (!username) {
                 tabs[2].style.display = "none"
                 tabs[4].style.display = "none"
