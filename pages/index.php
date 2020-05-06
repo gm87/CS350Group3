@@ -17,7 +17,10 @@
         const urlParams = new URLSearchParams(queryString)
         let pageId = urlParams.get('page_id')
         const username = window.localStorage.getItem('username')
-        console.log(`pageId: ${pageId}`)
+        if (username && parseInt(pageId) === 4) {
+            pageId = 1
+            window.history.pushState({}, document.title, "/." + window.location.pathname)
+        }
         if (username === null && (parseInt(pageId) === 3 || parseInt(pageId) === 5)) {
             pageId = 1
             window.history.pushState({}, document.title, "/." + window.location.pathname)
