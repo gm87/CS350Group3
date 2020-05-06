@@ -17,6 +17,7 @@
         const urlParams = new URLSearchParams(queryString)
         let pageId = urlParams.get('page_id')
         const username = window.localStorage.getItem('username')
+        console.log(`pageId: ${pageId}`)
         if (username === null && (parseInt(pageId) === 3 || parseInt(pageId) === 5)) {
             pageId = 1
             window.history.pushState({}, document.title, "/." + window.location.pathname)
@@ -36,18 +37,13 @@
             const pages = document.getElementsByTagName("section")
             for (page of pages) { // hide all pages
                 page.style.display = "none"
-        }
-	for (tab of tabs) { // set onClick function for all tabs
-	tab.onclick = function() {
-
-
-	const queryString = window.location.search
-	const urlParams = new URLSearchParams(queryString)
-	urlParams.set('page_id', this.id)
-	let page_id_copy = urlParams.get("page_id")
-	                    console.log("page_id_copy ", page_id_copy, this.id)
-	displayPage(this.id) }
-	            }
+            }
+            for (tab of tabs) { // set onClick function for all tabs
+                tab.onclick = function() {
+                    displayPage(this.id)
+                    window.history.pushState("", "", `./?page_id=${this.id.substring(4)}`)
+                }
+            }
             if (!username) {
                 tabs[2].style.display = "none"
                 tabs[4].style.display = "none"
