@@ -17,6 +17,7 @@
         const urlParams = new URLSearchParams(queryString)
         let pageId = urlParams.get('page_id')
         const username = window.localStorage.getItem('username')
+        console.log(`pageId: ${pageId}`)
         if (username === null && (parseInt(pageId) === 3 || parseInt(pageId) === 5)) {
             pageId = 1
             window.history.pushState({}, document.title, "/." + window.location.pathname)
@@ -25,6 +26,7 @@
         //     if null, use homepage
         let currentPage = parseInt(pageId) || 1
         window.onload = _ => {
+	
             const nav = document.getElementsByTagName("nav")[0]
             const tabs = nav.getElementsByTagName("a")
 
@@ -37,7 +39,10 @@
                 page.style.display = "none"
             }
             for (tab of tabs) { // set onClick function for all tabs
-                tab.onclick = function() { displayPage(this.id) }
+                tab.onclick = function() {
+                    displayPage(this.id)
+                    window.history.pushState("", "", `./?page_id=${this.id.substring(4)}`)
+                }
             }
             if (!username) {
                 tabs[2].style.display = "none"
