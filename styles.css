@@ -232,7 +232,10 @@ nav a:hover {
 }
 
 .commentContainer {
-    margin-left: 30px;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.postComments {
+    margin-left: 30px;
 }
