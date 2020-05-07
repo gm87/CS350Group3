@@ -24,21 +24,24 @@
             echo "<div class=postHeader>" . json_decode(file_get_contents($orignalPost))->title . "</div>";
             echo "<div class=postBody>" . json_decode(file_get_contents($orignalPost))->body . "</div>";
             $comments = scandir($filePath, 1);
-            echo "<div class=\"postComments\">";
-            foreach ($comments as $comment) { // read in all files. originalPost.json is original post, rest are comments
-                if ($comment == '.' || $comment == '..' || $comment == 'originalPost.json') continue; // if current or prev directory, skip
-                echo "<div class=\"commentContainer\">
-                <div class=\"author\"> " .
-                    json_decode(file_get_contents($filePath . "/" . $comment))->author .
-                "</div>
-                <div class=\"message\">" .
-                    json_decode(file_get_contents($filePath . "/" . $comment))->comment .
-                "</div>
-                <div class=\"datePosted\">" .
-                    date("F j, Y", $comment) .
-                "</div>";
-            }
-            echo "</div>";
+    echo "<div class=\"postComments\">";
+      $index = 0;
+      foreach ($comments as $comment) { // read in all files. originalPost.json is original post, rest are comments
+      if ($comment == '.' || $comment == '..' || $comment == 'originalPost.json') continue; // if current or prev directory, skip
+      if($index % 2 == 0) {echo "<div class=\"commentContainer\">";}
+      else {echo "<div class=\"commentContainer backgroudColorPink\">";}
+      echo "<div class=\"author\"> " .
+	  json_decode(file_get_contents($filePath . "/" . $comment))->author .
+	                  "</div>
+        <div class=\"message\">" .
+	  json_decode(file_get_contents($filePath . "/" . $comment))->comment .
+	                  "</div>
+        <div class=\"datePosted\">" .
+	  date("F j, Y", $comment) .
+	  "</div></div>";
+	$index++;
+      }
+        echo "</div>";
         ?>
         <div class="commentForm">
         <form id="newCommentFormElement" method="post" autocomplete="off">
